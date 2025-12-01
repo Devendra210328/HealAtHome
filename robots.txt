@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://physiovertex.in/sitemap.xml
