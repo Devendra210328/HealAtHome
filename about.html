@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>About Us | PhysioVertex - Expert Physiotherapy at Home in Mumbai</title>
+    
+    <meta name="description" content="Learn about PhysioVertex - Mumbai's trusted home physiotherapy service. Meet our certified specialist providing expert neurological, orthopaedic, and geriatric rehabilitation services.">
+    <meta name="keywords" content="about physiovertex, physiotherapist mumbai, home physiotherapy, expert physio, certified specialist mumbai">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #eeeeee;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 130px;
+            height: 75px;
+            max-width: 130px;
+            max-height: 75px;
+            object-fit: contain;
+            display: block;
+            visibility: visible !important;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #c41e3a;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #171717;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu a {
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 100%);
+            color: white;
+            padding: 120px 20px 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: #171717;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .mission-box, .vision-box {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 5px solid #c41e3a;
+        }
+
+        .mission-box h3, .vision-box h3 {
+            color: #c41e3a;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .therapist-profile {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 100%);
+            color: white;
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+
+        .therapist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .therapist-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .therapist-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .therapist-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .credentials-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .credentials-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .credentials-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-box {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #c41e3a;
+            transition: transform 0.3s ease;
+        }
+
+        .value-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-box h4 {
+            color: #1e3a5f;
+            font-size: 20px;
+            margin: 15px 0 10px;
+        }
+
+        .value-box p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #262626;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .footer-section h4 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 8px;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #1e3a5f;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .footer-bottom a {
+            color: #1e3a5f;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .therapist-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="imgaes/Screenshot 2025-11-30 at 5.42.01 PM.png" alt="PhysioVertex Logo" onerror="this.src='imgaes/favicon.png'">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#form-section" class="nav-cta">Book Now</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About PhysioVertex</h1>
+            <p>Your Trusted Partner in Home-Based Physiotherapy Care</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">WHO WE ARE</h2>
+                <p>
+                    PhysioVertex is a premier home-based physiotherapy service provider in Mumbai, dedicated to bringing expert rehabilitation care directly to your doorstep. Founded with a mission to make professional physiotherapy accessible, convenient, and effective, we specialize in neurological, orthopaedic, and geriatric rehabilitation.
+                </p>
+                <p>
+                    Our approach is simple yet powerful: personalized, one-on-one care in the comfort of your own home. We understand that recovery is not just about physical healing—it's about restoring confidence, independence, and quality of life. That's why we've built a service that combines clinical excellence with compassionate, patient-centered care.
+                </p>
+                <p>
+                    Whether you're recovering from a stroke, managing chronic pain, rehabilitating after surgery, or seeking support for age-related mobility issues, PhysioVertex is here to guide you every step of the way. Our certified specialist brings years of experience, state-of-the-art techniques, and a genuine commitment to your recovery.
+                </p>
+
+                <div class="mission-vision">
+                    <div class="mission-box">
+                        <h3>Our Mission</h3>
+                        <p>To provide accessible, high-quality physiotherapy services that empower individuals to achieve optimal recovery and wellness in the comfort of their homes. We are committed to delivering personalized care that addresses each patient's unique needs, ensuring faster recovery and improved quality of life.</p>
+                    </div>
+                    <div class="vision-box">
+                        <h3>Our Vision</h3>
+                        <p>To become Mumbai's most trusted home physiotherapy service, recognized for clinical excellence, compassionate care, and transformative patient outcomes. We envision a future where everyone has access to professional rehabilitation services, regardless of mobility or location constraints.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Therapist Profile -->
+    <section class="content-section">
+        <div class="container">
+            <div class="therapist-profile">
+                <h2 class="section-title" style="color: white; margin-bottom: 40px;">MEET OUR EXPERT SPECIALIST</h2>
+                <div class="therapist-grid">
+                    <div>
+                        <img src="imgaes/pexels-funkcines-terapijos-centras-927573878-20860582.jpg" alt="Expert Physiotherapist" class="therapist-image">
+                    </div>
+                    <div class="therapist-info">
+                        <h3>Certified Physiotherapy Specialist</h3>
+                        <p>
+                            Our lead physiotherapist brings extensive experience in treating complex neurological, orthopaedic, and geriatric conditions. With advanced training and continuous professional development, our specialist is equipped with the latest evidence-based techniques to ensure optimal patient outcomes.
+                        </p>
+                        <p>
+                            What sets our specialist apart is not just technical expertise, but a genuine passion for helping patients regain their independence. Every treatment session is tailored to your specific condition, goals, and lifestyle, ensuring a personalized recovery journey.
+                        </p>
+                        <ul class="credentials-list">
+                            <li>Master's Degree in Physiotherapy</li>
+                            <li>Specialized Training in Neurorehabilitation</li>
+                            <li>Advanced Certification in Orthopaedic Therapy</li>
+                            <li>Geriatric Care Specialist</li>
+                            <li>Registered with Maharashtra State Physiotherapy Council</li>
+                            <li>10+ Years of Clinical Experience</li>
+                            <li>Continued Professional Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">OUR CORE VALUES</h2>
+            <div class="values-grid">
+                <div class="value-box">
+                    <h4>Excellence</h4>
+                    <p>We maintain the highest standards of clinical practice, staying updated with the latest research and treatment modalities to deliver exceptional care.</p>
+                </div>
+                <div class="value-box">
+                    <h4>Compassion</h4>
+                    <p>We understand that recovery can be challenging. Our team provides empathetic, supportive care that addresses both physical and emotional needs.</p>
+                </div>
+                <div class="value-box">
+                    <h4>Integrity</h4>
+                    <p>Honest communication, transparent pricing, and ethical practice are the foundations of our service. We build trust through consistent, reliable care.</p>
+                </div>
+                <div class="value-box">
+                    <h4>Innovation</h4>
+                    <p>We incorporate cutting-edge techniques and evidence-based practices to ensure the most effective treatment outcomes for our patients.</p>
+                </div>
+                <div class="value-box">
+                    <h4>Accessibility</h4>
+                    <p>We believe quality healthcare should be accessible to all. Our home-based service eliminates barriers and makes professional care convenient.</p>
+                </div>
+                <div class="value-box">
+                    <h4>Patient-Centered</h4>
+                    <p>Your goals, preferences, and comfort are our priorities. We create treatment plans that align with your lifestyle and recovery objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="content-section" style="background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
+        <div class="container">
+            <h2 class="section-title">WHY CHOOSE PHYSIOVERTEX?</h2>
+            <div class="about-content">
+                <p style="font-size: 18px; font-weight: 600; color: #1e3a5f; margin-bottom: 20px;">
+                    ✓ Same-Day Appointments Available
+                </p>
+                <p style="margin-bottom: 20px;">
+                    We understand that some conditions require immediate attention. That's why we offer same-day booking for urgent cases, ensuring you get the care you need when you need it.
+                </p>
+                
+                <p style="font-size: 18px; font-weight: 600; color: #1e3a5f; margin-bottom: 20px;">
+                    ✓ Free Initial Consultation
+                </p>
+                <p style="margin-bottom: 20px;">
+                    We offer a complimentary initial assessment to understand your condition, discuss treatment options, and answer any questions you may have before committing to a treatment plan.
+                </p>
+                
+                <p style="font-size: 18px; font-weight: 600; color: #1e3a5f; margin-bottom: 20px;">
+                    ✓ Coverage Across Mumbai
+                </p>
+                <p style="margin-bottom: 20px;">
+                    We serve patients across all areas of Mumbai, from South Mumbai to the suburbs. Our mobile service ensures you don't have to travel for quality care.
+                </p>
+                
+                <p style="font-size: 18px; font-weight: 600; color: #1e3a5f; margin-bottom: 20px;">
+                    ✓ Comprehensive Treatment Approach
+                </p>
+                <p>
+                    Our treatment goes beyond just exercises. We provide holistic care including pain management, mobility training, functional rehabilitation, home exercise programs, and ongoing support to ensure sustained recovery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>Specialized physiotherapy services providing expert care and rehabilitation right at your home.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>📞 +919649498355</p>
+                    <p>📧 physiovertex0@gmail.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Professional Physiotherapy Services. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

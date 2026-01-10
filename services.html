@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Services | PhysioVertex - Expert Physiotherapy at Home in Mumbai</title>
+    
+    <meta name="description" content="Comprehensive physiotherapy services in Mumbai. Expert home physiotherapy for Neurological, Orthopaedic, and Geriatric rehabilitation. Book your session today!">
+    <meta name="keywords" content="physiotherapy services mumbai, home physiotherapy, neurology rehabilitation, orthopaedic rehabilitation, geriatric rehab">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #eeeeee;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 130px;
+            height: 75px;
+            max-width: 130px;
+            max-height: 75px;
+            object-fit: contain;
+            display: block;
+            visibility: visible !important;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #c41e3a;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #171717;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu a {
+                font-size: 18px;
+                padding: 10px 0;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 100%);
+            color: white;
+            padding: 120px 20px 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+            padding: 60px 20px;
+        }
+
+        .category-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #c41e3a;
+            margin: 80px 0 60px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .category-title:first-child {
+            margin-top: 40px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .centered-cards-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .centered-cards-wrapper .service-card {
+            width: calc(33.333% - 17px);
+            min-width: 280px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #1e3a5f;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f2340 100%);
+            color: white;
+            padding: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .service-card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .service-card-body {
+            padding: 20px;
+            background: #f9f9f9;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card-body p {
+            font-size: 14px;
+            color: #363636;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .service-card-image {
+            width: 100%;
+            min-height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .cta-button {
+            display: block;
+            margin: 60px auto;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #262626;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .footer-section h4 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 8px;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #1e3a5f;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .footer-bottom a {
+            color: #1e3a5f;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .category-title {
+                font-size: 24px;
+            }
+            
+            .centered-cards-wrapper .service-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="imgaes/Screenshot 2025-11-30 at 5.42.01 PM.png" alt="PhysioVertex Logo" onerror="this.src='imgaes/favicon.png'">
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html#form-section" class="nav-cta">Book Now</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive Physiotherapy Care in the Comfort of Your Home</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="category-title">NEUROLOGY REHABILITATION</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Stroke / Hemiplegia / Monoplegia / Paraplegia</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Restore movement and independence with guided neuro-rehab.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/imges3.jpg" alt="Neurological physiotherapy for Stroke or Paraplegia recovery">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Parkinson's Disease</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Improve balance, posture, and mobility with specialised exercises.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/images4.png" alt="Home physiotherapy for Parkinson's Disease in Mumbai">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Cerebral Ataxia</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Enhance coordination, stability, and motor control.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image5.jpg" alt="Physiotherapy for Cerebral Ataxia motor control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="centered-cards-wrapper">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Cerebral Palsy / Delayed Milestone</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Support motor skills, mobility, and developmental progress.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image6.jpeg" alt="Pediatric physiotherapy for Cerebral Palsy or Delayed Milestone">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Traumatic Brain Injury (TBI)</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Rebuild balance, coordination, and cognition for daily life.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image7.png" alt="Traumatic Brain Injury (TBI) neurological rehabilitation">
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="category-title">ORTHOPAEDIC REHABILITATION</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>ACL / PCL Tear / Meniscal Tear / Post-Reconstruction</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Rebuild strength, stability, and confidence after injury or surgery.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image8.png" alt="Ortho physiotherapy for ACL, PCL, Meniscal Tear, Post-Reconstruction">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Knee / Hip Replacement</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Regain mobility and walk independently after surgery.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image9.png" alt="Home rehabilitation after Knee or Hip Replacement surgery">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Lumbar Spondylosis / Spondylolisthesis</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Relieve back pain, improve flexibility, and strengthen support.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image10.jpg" alt="Physiotherapy for Lumbar Spondylosis back pain relief">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Cervical Spondylosis / Spondylolisthesis</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Reduce neck pain, improve posture, and restore mobility.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image11.jpg" alt="Physiotherapy for Cervical Spondylosis neck pain">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Post-Laminectomy Rehab</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Structured recovery to restore movement and reduce pain.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image12.jpg" alt="Post-Laminectomy spinal rehabilitation physiotherapy">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Periarthritis / Frozen Shoulder / Adhesive Capsulitis</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Relieve stiffness, restore movement, and ease shoulder pain.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image13.jpg" alt="Physiotherapy for Frozen Shoulder or Adhesive Capsulitis">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Polyarthralgia (Multiple Joint Pain)</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Gentle therapy to ease pain and improve flexibility.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image14.jpeg" alt="Geriatric physiotherapy for Polyarthralgia (Multiple Joint Pain)">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Muscle Tightness / Joint Stiffness</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Restore flexibility, movement, and strength.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image15.jpg" alt="Physiotherapy for Muscle Tightness and Joint Stiffness">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Loss of Balance / Gait Training</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Improve stability, coordination, and confidence in walking.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image16.jpg" alt="Gait training and balance improvement physiotherapy">
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="category-title">GENERAL AND GERIATRIC</h2>
+            <div class="centered-cards-wrapper">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Post-Surgical / Fracture Rehab</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Safe recovery to restore strength and mobility.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image17.jpg" alt="Post-Surgical and Fracture rehabilitation at home">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Geriatric Rehab</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Improve strength, independence, and daily function in older adults.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image17.jpeg" alt="Geriatric rehabilitation physiotherapy for older adults">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="centered-cards-wrapper">
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>ICU-Acquired / General Weakness</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Rebuild strength, stamina, and functional independence.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image18.png" alt="Physiotherapy for ICU-Acquired or General Weakness">
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <h3>Inflammation</h3>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Reduce swelling, ease pain, and restore joint movement.</p>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image19.png" alt="Physiotherapy to reduce inflammation and joint pain">
+                    </div>
+                </div>
+            </div>
+            
+            <a href="index.html#form-section" class="cta-button">Book Your Session</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>Specialized physiotherapy services providing expert care and rehabilitation right at your home.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>📞 +919649498355</p>
+                    <p>📧 physiovertex0@gmail.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Professional Physiotherapy Services. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
