@@ -382,17 +382,47 @@
             text-decoration: none;
         }
 
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.6);
+        }
+
         @media (max-width: 768px) {
             .page-header h1 {
                 font-size: 28px;
             }
-            
+
             .section-title {
                 font-size: 24px;
             }
-            
+
             .therapist-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -553,6 +583,9 @@
             </div>
         </div>
     </section>
+
+    <!-- Floating Button -->
+    <a href="index.html#form-section" class="floating-btn">Book Consultation</a>
 
     <!-- Footer -->
     <footer>
